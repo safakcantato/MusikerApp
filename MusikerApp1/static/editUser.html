@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lib/jquery-3.6.0.min.js"></script>
+
+    <title>edit account</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            color: red;
+        }
+
+        @media screen and (max-width:800px) {
+            .onlydesktop {
+                display: none;
+            }
+        }
+
+
+        @media screen and (min-width:801px) {
+
+            /*.onlydesktop {
+        display:initial;
+    }*/
+            .onlymobile {
+                display: none;
+            }
+
+            body {
+                color: rgb(26, 26, 26);
+            }
+
+        }
+
+       
+
+        @media screen and (orientation:portrait) {
+            body {
+                background: #fff;
+                background-image: url(https://as1.ftcdn.net/jpg/02/80/87/12/500_F_280871252_iWE59U5f5RlCtfVmzdsIymIuaPyzNpyw.jpg);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 100vh;
+                /* volle Höhe - viewport height */
+
+            }
+
+            body>* {
+                display: none;
+            }
+        }
+
+        @media screen and (orientation:landscape) {
+               
+          body {
+            background:rgb(39, 232, 225) linear-gradient(to left, #fff 0%, rgb(0, 239, 135) 75%);
+        } 
+
+         
+
+         button {
+             cursor:pointer;
+         }
+         textarea {
+             resize: none;
+         }
+ 
+         input[disabled] {
+             background:red;
+         }
+ 
+         input[type="text"],
+         input[type="password"], 
+         input[type="email"],
+         input[type="number"]   {
+             width:250px;
+             border:2px solid #000;
+             padding:5px; 
+             text-align:center;
+         }
+         label { 
+             width:80px;    
+             display:inline-block;     
+         }
+ 
+         input[type="radio"] + label {
+             display:inline;
+             margin-right:20px;
+         }
+ 
+         input[required] + span::before {
+             content:' (Pflichtfeld)';
+         }
+         #labelnachricht {
+             display:inline-block;
+             vertical-align:middle;
+         }
+         textarea {
+             vertical-align: middle;
+         }
+
+     </style>
+
+</head>
+
+<body>
+
+    
+    <h1>Edit Your Profile</h1>
+    <form action="?" method="get" enctype="application/x-www-form-urlencoded"><!-- WICHTIG, Container für alle Elemente -->
+
+    <label for="benutzerVorname">Name:</label>
+    <input type="text" name="benutzerVorname" id="benutzerVorname" tabindex="1" autofocus></input><br>
+    <label for="benutzerNachname">Family Name:</label>
+    <input type="text" name="benutzerNachname" id="benutzerNachname" tabindex="1" autofocus /><br>
+    <label for="date">Date:</label>
+    <input type="date" id="date" date-format=""><br>
+    <label for="feld2">E-Mail:</label>
+    <input type="text" name="benutzermail" id="email" tabindex="3" placeholder="name@domain.tld" autocomplete="off"
+        required /><br>
+    Role:
+    <select name="role" id="role">
+        <option value="MU">Musician</option>
+        <option value="ST">Student</option>
+        <option value="AD">Admin</option>
+    </select><br>
+
+    Instrument:
+    <select name="Instrument" id="instrument">
+        <option value="Piano">Piano</option>
+        <option value="Violin">Violin</option>
+        <option value="Guitar">Guitar</option>
+    </select><br>
+    Land: 
+    <select name="land">
+        <option value="">bitte wählen...</option>
+        <option value="AT">Österreich</option>
+        <option value="DE">Deuschland</option>
+    </select><br>
+
+    Upload a Photo : <input type="file"><br>
+    <div id="labelnachricht">Nachricht:</div> <textarea rows="5"></textarea><br>
+
+    Passwort: <input type="password" id="password" />
+    <br>
+    Confirm Passwort: <input type="password" id="confirm-password" />
+    <br>
+    <button type="button" id="edit">edit</button>
+   
+
+    <script>
+
+        <script src="edit.js">
+        
+    </script>
+</body>
+
+</html>

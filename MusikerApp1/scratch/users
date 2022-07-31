@@ -1,0 +1,32 @@
+[
+	{
+		"vorname": "Can",
+		"nachname": "",
+		"email": "",
+		"password": "Safak",
+		"confirmPassword": "",
+		"date": "",
+		"role": "MU",
+		"instrument": "Piano"
+	},
+	{
+		"vorname": "Can",
+		"nachname": "tat",
+		"email": "",
+		"password": "Safak",
+		"confirmPassword": "",
+		"date": "",
+		"role": "MU",
+		"instrument": "Piano"
+	},
+	{
+		"vorname": "Alex",
+		"nachname": "Wifi",
+		"email": "wifi",
+		"password": "123",
+		"confirmPassword": "",
+		"date": "",
+		"role": "MU",
+		"instrument": "Piano"
+	}
+]

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ausgabe img {
+            width:400px;
+            height:300px;
+            position:absolute;            
+            top:0;
+            left:0;
+            transition:opacity 1s;
+            opacity:0; /* statt im CSS */
+        }
+        #ausgabe img:first-child {
+            opacity:1;
+        }
+        #ausgabe {
+            position:relative;
+            height:320px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bild-Slider mit Effekten</h1>
+    <div id="ausgabe">
+        <!-- bilder müssen alle im Quellcode sein, damit man Überblend-Effekte machen kann, wenn es nur ein Bild gibt, geht das nicht-->
+        <img src="images/das-paradies-fuer-wintersportler.jpg">
+        <img src="images/endlos-weite-schwuenge-ueber-perfekt-praeparierte-pisten-ziehen.jpg">
+        <img src="images/erlebnishotel-fendels-familienhit.jpg">
+        <img src="images/fruehlings-special-top-of-tyrol.jpg">
+        <!-- usw. -->
+    </div>
+    <button id="prev">voriges</button>
+    <button id="next">nächstes</button>
+    <script>
+    /* Bilder ausblenden, normal im CSS */
+    var bilder = document.querySelectorAll( '#ausgabe img' ); // Objektarray, Array mit HTMLNodeElementen
+    var bildAktiv = 0;
+
+    var bilderUnsichtbar = function() {
+        var i;
+        for ( i=0; i<bilder.length; i++ ) {
+        //for ( i in bilder ) {
+            console.log( i, bilder[i] );
+            bilder[i].style.opacity = 0;
+        }
+    }
+    
+    var bildSichtbar = function( ix ) {
+        bilder[ix].style.opacity = 1;
+    }
+    
+    var anderesBild = function( event ) {  // Parameter sind lokale Variablen, nicht nochmal deklarieren
+
+        console.log( event.target );
+        var wohin = event.target.id == 'next' ? 1 : -1;
+
+        if (wohin == 1 && bildAktiv < bilder.length-1 ) {
+            bildAktiv++;
+        }
+        if (wohin == -1 && bildAktiv > 0 ) {
+            bildAktiv--;
+        }
+        bilderUnsichtbar();
+        bildSichtbar(bildAktiv);
+    }
+
+    // Eventlistener
+    var buttons = document.querySelectorAll( '#next,#prev' );
+    for ( var i=0; i<buttons.length; i++ ) {
+        buttons[i].onclick = anderesBild;
+    }
+
+    /*
+    document.getElementById( 'next' ).onclick = anderesBild; // wichtig Funktion zuweisen, nicht mit () aufrufen!!!!, ABER Problem
+    document.getElementById( 'prev' ).onclick = anderesBild;
+    */
+    
+    //bilderUnsichtbar();
+    //bildSichtbar(0);
+
+
+
+    </script>
+</body>
+</html>

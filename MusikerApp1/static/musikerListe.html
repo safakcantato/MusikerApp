@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lib/jquery-3.6.0.min.js"></script>
+
+    <title>Musicians List</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            color: red;
+        }
+
+        @media screen and (max-width:800px) {
+            .onlydesktop {
+                display: none;
+            }
+        }
+
+
+        @media screen and (min-width:801px) {
+
+            /*.onlydesktop {
+        display:initial;
+    }*/
+            .onlymobile {
+                display: none;
+            }
+
+            body {
+                color: rgb(26, 26, 26);
+            }
+
+        }
+
+
+
+        @media screen and (orientation:portrait) {
+            body {
+                background: #fff;
+                background-image: url(https://as1.ftcdn.net/jpg/02/80/87/12/500_F_280871252_iWE59U5f5RlCtfVmzdsIymIuaPyzNpyw.jpg);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 100vh;
+                /* volle Höhe - viewport height */
+
+            }
+
+            body>* {
+                display: none;
+            }
+        }
+
+        @media screen and (orientation:landscape) {
+            body {
+                background: rgb(42, 98, 96) linear-gradient(to right, #fff 0%, rgb(41, 129, 167) 75%);
+            }
+
+
+            figure {
+                margin: 0;
+
+            }
+
+            #wrapper,
+            #wrapper>* {
+                border: 1px solid #ccc;
+                margin: 5px;
+                padding: 5px;
+
+            }
+
+            header {
+                background-color: #304860;
+                color: #fff;
+                border-bottom: 15px solid #536f7d;
+                line-height: 1;
+                font-size: 1.2em;
+
+            }
+
+
+            aside {
+                flex-grow: 1;
+                /* align-self: flex-end;*/
+            }
+
+            #wrapper {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            header,
+            nav,
+            footer {
+                width: 100%;
+
+            }
+
+
+            button {
+                border: none;
+                border-radius: 10px;
+                padding: 10px 30px;
+                background: rgb(15, 187, 187);
+                font-size: 1em;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 900;
+                text-transform: uppercase;
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2), -2px -4px 0 0px #000;
+                cursor: pointer;
+
+            }
+
+
+
+            button:hover {
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2), 0px -2px 0 0px #000;
+                position: relative;
+                top: -2px;
+                left: -2px;
+
+            }
+
+            button:hover::after {
+                transform: rotate(720deg) scale(1.5);
+
+            }
+
+            button::after {
+                content: '';
+                display: inline-block;
+                height: 0.8em;
+                width: 0.8em;
+                background-image: url(search.svg);
+                background-size: 100% 100%;
+                margin-left: 0.5em;
+                transition: transform 2s;
+            }
+
+            input {
+                border: 2px solid #000;
+                font-size: 1em;
+                padding: 10px 50px;
+                border-radius: 10px;
+                outline: none;
+            }
+
+            input::placeholder {
+                transition: color 1s;
+            }
+
+            input:focus::placeholder {
+                color: #fff;
+            }
+
+
+            #a1 {
+                order: 3;
+            }
+
+
+            #a2 {
+                order: 1;
+            }
+
+            article {
+                height: 500px;
+                flex-grow: 1;
+                order: 2;
+            }
+
+            footer {
+                border: 1px solid #ccc;
+                padding: 5px;
+                order: 100;
+            }
+
+            #wrapper::after {
+                /* CLEARFIX */
+                content: '';
+                display: block;
+                clear: both;
+                /* hier endet float! */
+                border: 1px solid green;
+            }
+
+            nav {
+                border-top: 3px solid #fff; 
+                border-bottom: 3px solid #fff;
+                background: #043846;
+                line-height: 1.5;
+                height: 1.7em;
+            }
+
+            nav ul {
+                padding: 0;
+                margin: 0;
+                padding-right: 20px;
+                text-align: right;
+            }
+
+            nav li {
+                list-style: none;
+                display: inline-block;
+                margin-left: 15px; 
+            }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="onlydesktop">
+        <div id="wrapper">
+            <header>MUSIKERN</header>
+            <article>INHALT...</article>
+            <aside id="a1">
+                <input type="text" placeholder="Suche nach...">
+                <button>suche</button><br>
+            </aside>
+            <aside id="a2">Musiker</aside>
+        </div>
+
+
+
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="#"><img src="images/en.png" alt="English"></a></li>
+                    <li><a href="#"><img src="images/fr.png" alt="Français"></a></li>
+                </ul>
+            </nav>
+            <div id="copy">
+                design by <a href="http://www.webtato.at">webtato.at</a>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script>
+
+        <script src="musicianlist.js">
+        
+    </script>
+</body>
+
+</html>

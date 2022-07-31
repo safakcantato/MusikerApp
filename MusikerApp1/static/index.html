@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <!-- <script type="text/javascript" src="data.json"></script> -->
+  
+    <script src="lib/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    AIzaSyBTfrbJ8whPwzbLtzbmZzi7D20bJArwchE
+    
+    <h1>Login</h1>
+
+
+    <div id="searchb">
+        <button onclick="userSearch()">Search</button>
+    </div>
+
+    
+
+    <form action="?" method="get" enctype="application/x-www-form-urlencoded">
+        <!-- WICHTIG, Container für alle Elemente -->
+
+
+        <p><label for="feld2">E-Mail:</label> <input type="text" name="benutzermail" id="email" tabindex="3"
+                placeholder="name@domain.tld" autocomplete="off" required><span></span></p>
+
+        Passwort: <input type="password" id="password"><br>
+
+<!--
+        Role:
+        <select name="role">
+            <option value="MU">Musician</option>
+            <option value="ST">Student</option>
+            <option value="AD">Admin</option>
+        </select>
+    -->
+        <hr>
+
+        <button type="button">Forgot</button>
+        <a href="/newuser.html">
+            <input type="button" value="Neu User Registrieren" />
+         </a>
+        <button type="button" id="loginbtn">Login</button>
+    </form>
+
+    
+    <script>
+
+
+
+        function userSearch() {
+            var firstName = document.getElementById("password").value;
+            var surName = document.getElementById("role").value;
+            console.log(firstName + " " + surName);
+        }
+
+        $( '#loginbtn' ).on( 'click', (e)=>{
+            e.preventDefault();
+            $.ajax({
+                url:'/login',
+                data:{ 
+                    email: $('#email').val(),
+                    password: $('#password').val(),
+                    
+                }, // was user eingebene hat
+                method:'post',
+                success:(resp)=>{
+                    if ( resp.ok ) {
+                        alert( 'OK' );
+                        window.location = "/member/index.html"
+                    } else{
+                        alert( 'gibt nicht' );
+                    }
+                  //  alert( 'Danke' ); // schöner, besser
+                  //  window.location = "/"
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

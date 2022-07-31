@@ -1,0 +1,17 @@
+{
+  "name": "musikerapp1",
+  "version": "1.0.0",
+  "description": "Ich möchte ein Web App für einen Musiker machen. Die Schüler*Innen können sich registrieren. Die Schüler*Innen werden in dem App Termine für die Privat Instrument Unterrichten buchen können und freie Termine sehen und sehen links zu Konzerttickets, links zu seinen Musik Projekts besonders mit icon von Social Media Platformen wie Spotify und Youtube. und am Ende Kontakt",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "localstorage": "^1.0.1",
+    "node-localstorage": "^2.2.1"
+  }
+}

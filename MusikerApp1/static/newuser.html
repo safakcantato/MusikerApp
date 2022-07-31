@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /* * {
+            cursor:none;
+        }*/
+        /*a {
+            cursor: default;
+        }*/
+        button {
+            cursor:pointer;
+        }
+        textarea {
+            resize: none;
+        }
+
+        input[disabled] {
+            background:red;
+        }
+
+        input[type="text"],
+        input[type="password"], 
+        input[type="email"],
+        input[type="number"]   {
+            width:250px;
+            border:2px solid #000;
+            padding:5px; 
+            text-align:center;
+        }
+        label { 
+            width:80px;    
+            display:inline-block;     
+        }
+
+        input[type="radio"] + label {
+            display:inline;
+            margin-right:20px;
+        }
+
+        input[required] + span::before {
+            content:' (Pflichtfeld)';
+        }
+        #labelnachricht {
+            display:inline-block;
+            vertical-align:middle;
+        }
+        textarea {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <h1>New User Registration</h1>
+    
+
+        <label for="benutzerVorname">Name:</label>
+        <input type="text" name="benutzerVorname" id="benutzerVorname" tabindex="1" autofocus></input>
+        <label for="benutzerNachname">Family Name:</label>
+        <input type="text" name="benutzerNachname" id="benutzerNachname" tabindex="1" autofocus/>
+        <label for="date">Date:</label>
+        <input type="date" id="date" date-format=""><br>
+        <label for="feld2">E-Mail:</label>
+        <input type="text" name="benutzermail" id="email" tabindex="3" placeholder="name@domain.tld" autocomplete="off" required/>
+        Role:
+        <select name="role" id="role">
+            <option value="MU">Musician</option>
+            <option value="ST">Student</option>
+            <option value="AD">Admin</option>
+        </select>
+
+        Instrument:
+        <select name="Instrument" id="instrument">
+            <option value="Piano">Piano</option>
+            <option value="Violin">Violin</option>
+            <option value="Guitar">Guitar</option>
+        </select>
+
+
+        Passwort: <input type="password" id="password"/>
+        <br>
+        Confirm Passwort: <input type="password" id="confirm-password"/>
+        <br>
+        <button type="button" id="create">Create</button>
+        <button type="button">Back</button>
+        <button type="button">Reset</button>
+
+       <script src="lib/jquery-3.6.0.min.js"></script>
+       <script>
+
+        let vorname = $('#benutzerVorname')
+        let nachname = $('#benutzerNachname')
+        let email = $('#email')
+        let password = $('#password')
+        let confirmPassword = $('#confirm-password')
+        let date = $('#date')
+        let role = $('#role')
+        let instrument = $('#instrument')
+
+        $( '#create' ).on( 'click', (e)=>{
+            e.preventDefault();
+            $.ajax({
+                url:'/createuser',
+                data:{ 
+                    vorname: vorname.val(),
+                    nachname: nachname.val(),
+                    email: email.val(),
+                    password: password.val(),
+                    confirmPassword: confirmPassword.val(),
+                    date: date.val(),
+                    role: role.val(),
+                    instrument: instrument.val()
+                }, // was user eingebene hat
+                method:'post',
+                success:()=>{
+                    alert( 'Danke' ); // schöner, besser
+                    window.location = "/"
+                }
+            })
+        })
+
+
+       </script>
+</body>
+</html> 
